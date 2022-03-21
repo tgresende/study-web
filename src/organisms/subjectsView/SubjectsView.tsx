@@ -1,19 +1,22 @@
 import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import { ipcRenderer } from 'electron'
 import React from 'react'
-import {
-  getSubjectsUseCase,
-  getSubjectsUseCaseResponse,
-} from '../../functions/api/getSubjectsUseCase'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSubjectsUseCase } from '../../functions/api/getSubjectsUseCase'
 import { AddIconBtn } from '../../molecules/buttons'
+import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
+import { AppDispatch } from '../../store'
 
 export default function SubjectsView() {
   const projectId = 1
+  const { subjects, addSubject, setSubjects } = useSubjectReducer(
+    useDispatch() as AppDispatch,
+    useSelector
+  )
 
   async function getSubject(): Promise<void> {
-    const data = await getSubjectsUseCase(projectId)
-    alert(JSON.stringify(data))
+    const subjects = await getSubjectsUseCase(projectId)
+    setSubjects(subjects)
   }
 
   React.useEffect(() => {
@@ -22,9 +25,19 @@ export default function SubjectsView() {
 
   return (
     <Box>
-      <AddIconBtn onClick={() => alert(`123`)} />
-
-      <Typography>aqui vai os cards</Typography>
+      <AddIconBtn
+        onClick={() =>
+          addSubject({
+            name: Math.random().toString(),
+            annotations: 'bc',
+            subjectId: 1,
+            weight: 10,
+          })
+        }
+      />
+      {subjects.map(subject => (
+        <Typography>{subject.name}</Typography>
+      ))}
     </Box>
   )
 }
