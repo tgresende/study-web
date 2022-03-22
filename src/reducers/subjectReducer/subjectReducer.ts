@@ -1,11 +1,14 @@
 import {
   ISubjectReducerType,
+  SET_ACTIVE_SUBJECT,
   SubjectStoreAction,
+  subjectType,
   UPDATE_SUBJECTS,
 } from './subjectTypes'
 
 const initialState: ISubjectReducerType = {
-  subjects: [],
+  subjects: [] as subjectType[],
+  activeSubject: undefined,
 }
 
 export const subjectReducer = (
@@ -17,6 +20,11 @@ export const subjectReducer = (
       return {
         ...state,
         subjects: action.subjects,
+      }
+    case SET_ACTIVE_SUBJECT:
+      return {
+        ...state,
+        activeSubject: action.activeSubject,
       }
     default:
       return state

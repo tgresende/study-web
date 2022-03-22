@@ -1,12 +1,12 @@
 import { GlobalStyle } from './styles/GlobalStyle'
 
-import { ProjectPage } from './pages'
+import Main from './main/Main'
 
 export function App() {
   return (
     <>
       <GlobalStyle />
-      <ProjectPage />
+      <Main />
     </>
   )
 }

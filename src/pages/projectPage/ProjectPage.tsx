@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { SubjectInsert, SubjectsView } from '../../organisms'
 
 export default function ProjectPage() {
