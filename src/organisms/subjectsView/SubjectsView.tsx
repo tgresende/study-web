@@ -25,16 +25,7 @@ export default function SubjectsView() {
 
   return (
     <Box>
-      <AddIconBtn
-        onClick={() =>
-          addSubject({
-            name: Math.random().toString(),
-            annotations: 'bc',
-            subjectId: 1,
-            weight: 10,
-          })
-        }
-      />
+      <AddIconBtn onClick={() => alert('abri modal com adicao de subject')} />
       {subjects.map(subject => (
         <Typography>{subject.name}</Typography>
       ))}

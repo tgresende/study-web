@@ -1,3 +1,3 @@
 import AddIcon from './AddIcon'
 
-export { AddIcon }
+export default { AddIcon }

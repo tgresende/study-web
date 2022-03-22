@@ -1,5 +1,5 @@
 import { IconBtn } from '../../atoms/buttons'
-import { AddIcon } from '../../atoms/icons'
+import AddIcon from '../../atoms/icons/AddIcon'
 
 type AddIconBtnType = {
   onClick: () => void
