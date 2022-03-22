@@ -27,7 +27,9 @@ export default function SubjectsView() {
     <Box>
       <AddIconBtn onClick={() => alert('abri modal com adicao de subject')} />
       {subjects.map(subject => (
-        <Typography>{subject.name}</Typography>
+        <Typography onClick={() => alert('vai para a visao do subject')}>
+          {subject.name}
+        </Typography>
       ))}
     </Box>
   )
