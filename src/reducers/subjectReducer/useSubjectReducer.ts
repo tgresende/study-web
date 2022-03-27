@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, IRootState } from '../../store'
+import { AppDispatch } from '../../store'
+import { IRootState } from '../../store/storeTypes'
 import {
   SET_ACTIVE_SUBJECT,
   subjectType,
