@@ -13,13 +13,7 @@ export async function httpGet(url: string): Promise<any> {
 
 export async function httpPost(url: string, body: any): Promise<any> {
   const data = await axios.post(url, body).catch(error => {
-    const message =
-      JSON.stringify(error) +
-      ' - post - ' +
-      url +
-      ' - body: ' +
-      JSON.stringify(body)
-    throw new Error(message)
+    throw new Error(error.response.data)
   })
   return data
 }

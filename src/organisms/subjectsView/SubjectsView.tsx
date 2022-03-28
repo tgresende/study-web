@@ -2,14 +2,18 @@ import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { getSubjectsUseCase } from '../../functions/api/getSubjectsUseCase'
+import { subjectPath } from '../../main/paths'
+import { pathType } from '../../main/routeTypes'
 import { AddIconBtn } from '../../molecules/buttons'
+import { subjectType } from '../../reducers/subjectReducer/subjectTypes'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
 import { AppDispatch } from '../../store'
 
 export default function SubjectsView() {
   const projectId = 1
-  const { subjects, addSubject, setSubjects } = useSubjectReducer(
+  const { subjects, setSubjects, setActiveSubject } = useSubjectReducer(
     useDispatch() as AppDispatch,
     useSelector
   )
@@ -19,15 +23,22 @@ export default function SubjectsView() {
     setSubjects(subjects)
   }
 
+  const navigate = useNavigate()
+
   React.useEffect(() => {
     getSubject()
   }, [])
+
+  function navigateToSubjectPage(subject: subjectType) {
+    setActiveSubject(subject)
+    navigate(subjectPath)
+  }
 
   return (
     <Box>
       <AddIconBtn onClick={() => alert('abri modal com adicao de subject')} />
       {subjects.map(subject => (
-        <Typography onClick={() => alert('vai para a visao do subject')}>
+        <Typography onClick={() => navigateToSubjectPage(subject)}>
           {subject.name}
         </Typography>
       ))}

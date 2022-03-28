@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, IRootState } from '../../store'
-import { subjectType, UPDATE_SUBJECTS } from './subjectTypes'
+import { AppDispatch } from '../../store'
+import { IRootState } from '../../store/storeTypes'
+import {
+  SET_ACTIVE_SUBJECT,
+  subjectType,
+  UPDATE_SUBJECTS,
+} from './subjectTypes'
 
 export default function useSubjectReducer(
   dispatch: AppDispatch = useDispatch,
@@ -8,6 +13,10 @@ export default function useSubjectReducer(
 ) {
   const subjects = selector<IRootState, subjectType[]>(
     state => state.subjectState.subjects
+  )
+
+  const activeSubject = selector<IRootState, subjectType | undefined>(
+    state => state.subjectState.activeSubject
   )
 
   const addSubject = (subject: subjectType) => {
@@ -24,5 +33,12 @@ export default function useSubjectReducer(
     })
   }
 
-  return { subjects, addSubject, setSubjects }
+  const setActiveSubject = (subject: subjectType) => {
+    dispatch({
+      type: SET_ACTIVE_SUBJECT,
+      activeSubject: subject,
+    })
+  }
+
+  return { subjects, addSubject, setSubjects, setActiveSubject, activeSubject }
 }
