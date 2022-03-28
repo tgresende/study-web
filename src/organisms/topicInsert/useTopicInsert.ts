@@ -1,4 +1,5 @@
 import React from 'react'
+import { addTopicUseCase } from '../../functions/api/topics/addTopicUseCase'
 import { subjectType } from '../../reducers/subjectReducer/subjectTypes'
 import { topicType } from '../../reducers/topicReducer/topicTypes'
 
@@ -13,10 +14,10 @@ export default function useTopicInsert(
     const body = {
       annotations: topicAnnotations,
       name: topicName,
-      subjectId: subjectParent.subjectId,
+      subjectId: subjectParent?.subjectId || 0,
     }
 
-    addtopicsUseCase(body)
+    addTopicUseCase(body)
       .then(response => addTopicReducer(response))
       .catch(e => alert(e.message))
   }

@@ -43,7 +43,7 @@ export default function TopicInsert() {
         value={topicAnnotations}
         onChange={e => setTopicAnnotations(e.target.value)}
       />
-      <CommomButton title="salvar" onClick={() => addTopic()} />
+      <CommomButton title="salvar" onClick={addTopic} />
     </Box>
   )
 }
