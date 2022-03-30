@@ -1,4 +1,7 @@
-import { pathType } from './routeTypes'
+export enum pathTypes {
+  projectPath = '/project',
+  subjectPath = '/subject',
+  cyclePath = '/cycle',
+}
 
-export const projectPath: pathType = '/project'
-export const subjectPath: pathType = '/subject'
+export type pathType = pathTypes

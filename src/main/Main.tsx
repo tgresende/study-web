@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { ProjectPage, SubjectPage } from '../pages'
-import { projectPath, subjectPath } from './paths'
-
+import { ProjectPage, SubjectPage, CyclePage } from '../pages'
+import { pathTypes } from '../main/paths'
 const Main = () => {
   return (
     <Routes>
-      <Route path={projectPath} element={<ProjectPage />} />
-      <Route path={subjectPath} element={<SubjectPage />} />
-      <Route path="" element={<Navigate to="/project" />} />
+      <Route path={pathTypes.projectPath} element={<ProjectPage />} />
+      <Route path={pathTypes.subjectPath} element={<SubjectPage />} />
+      <Route path={pathTypes.cyclePath} element={<CyclePage />} />
+      <Route path="" element={<Navigate to={pathTypes.projectPath} />} />
     </Routes>
   )
 }

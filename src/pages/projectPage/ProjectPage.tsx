@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { SubjectInsert, SubjectsView } from '../../organisms'
+import { SubjectInsert, SubjectsView, CycleCard } from '../../organisms'
 
 export default function ProjectPage() {
   return (
@@ -16,6 +15,7 @@ export default function ProjectPage() {
       >
         <SubjectsView />
         <SubjectInsert />
+        <CycleCard />
       </Box>
     </Box>
   )

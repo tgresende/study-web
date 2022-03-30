@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { projectPath } from '../../main/paths'
+import { pathTypes } from '../../main/paths'
 import TopicInsert from '../../organisms/topicInsert/TopictInsert'
 import TopicsView from '../../organisms/topicsView/TopicsView'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
@@ -29,7 +29,7 @@ export default function SubjectPage() {
         width={'80%'}
       >
         <Typography
-          onClick={() => navigate(projectPath)}
+          onClick={() => navigate(pathTypes.projectPath)}
         >{`Voltar`}</Typography>
       </Box>
       <TopicsView />
