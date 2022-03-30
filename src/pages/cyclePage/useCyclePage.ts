@@ -7,9 +7,9 @@ export default function useCyclePage() {
     addSubjectCycleReducer: (subjectsCycle: subjectCycleType[]) => void,
     projectId: number
   ) {
-    await addSimpleSubjectCycleUseCase(projectId)
-      .then(response => addSubjectCycleReducer(response))
-      .catch(e => alert(e.message))
+    await addSimpleSubjectCycleUseCase(projectId).catch(e => alert(e.message))
+
+    await getCycle(addSubjectCycleReducer, projectId)
   }
 
   async function getCycle(
