@@ -13,8 +13,6 @@ export async function addSubjectsUseCase(
   subject: insertSubjectType
 ): Promise<subjectType> {
   const url = addSubjectsUseCaseURL
-  alert(addSubjectsUseCaseURL)
-
   const response = await httpPost(url, subject)
   return response.data as subjectType
 }

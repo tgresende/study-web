@@ -4,8 +4,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getSubjectsUseCase } from '../../functions/api/getSubjectsUseCase'
-import { subjectPath } from '../../main/paths'
-import { pathType } from '../../main/routeTypes'
+import { pathTypes } from '../../main/paths'
 import { AddIconBtn } from '../../molecules/buttons'
 import { subjectType } from '../../reducers/subjectReducer/subjectTypes'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
@@ -23,7 +22,7 @@ export default function SubjectsView() {
     setSubjects(subjects)
   }
 
-  const navigate = useNavigate()
+  const navigateTo = useNavigate()
 
   React.useEffect(() => {
     getSubject()
@@ -31,7 +30,7 @@ export default function SubjectsView() {
 
   function navigateToSubjectPage(subject: subjectType) {
     setActiveSubject(subject)
-    navigate(subjectPath)
+    navigateTo(pathTypes.subjectPath)
   }
 
   return (
