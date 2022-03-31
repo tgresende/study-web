@@ -1,6 +1,7 @@
 import { combineReducers, createStore } from 'redux'
 import { subjectCycleReducer } from '../reducers/subjectCycleReducer/subjectCycleReducer'
 import { subjectReducer } from '../reducers/subjectReducer/subjectReducer'
+import { topicCycleReducer } from '../reducers/topicCycleReducer/topicCycleReducer'
 import { topicReducer } from '../reducers/topicReducer/topicReducer'
 import { IRootState } from './storeTypes'
 
@@ -11,6 +12,7 @@ const store = createStore<IRootState, any, any, any>(
     subjectState: subjectReducer,
     topicState: topicReducer,
     subjectCycleState: subjectCycleReducer,
+    topicCycleState: topicCycleReducer,
   })
 )
 export default store
