@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { pathTypes } from '../../main/paths'
+import { CycleTopicsView } from '../../organisms'
 import TopicInsert from '../../organisms/topicInsert/TopictInsert'
 import TopicsView from '../../organisms/topicsView/TopicsView'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
@@ -31,9 +32,10 @@ export default function SubjectPage() {
         <Typography
           onClick={() => navigate(pathTypes.projectPath)}
         >{`Voltar`}</Typography>
+        <TopicsView />
+        <TopicInsert />
+        <CycleTopicsView />
       </Box>
-      <TopicsView />
-      <TopicInsert />
     </Box>
   )
 }
