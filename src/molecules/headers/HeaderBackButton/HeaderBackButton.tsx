@@ -17,12 +17,12 @@ export default function HeaderBackButton(props: HeaderBackButtonPropTypes) {
       alignItems={`center`}
       width={`100%`}
     >
-      <Box width={1 / 3} display={`flex`} justifyContent={`flex-start`}>
+      <Box width={1 / 6} display={`flex`} justifyContent={`flex-start`}>
         <IconBtn onClick={onClickAction}>
           <LeftArrowIcon />
         </IconBtn>
       </Box>
-      <Box width={1 / 3} display={`flex`} justifyContent={`center`}>
+      <Box width={4 / 6} display={`flex`} justifyContent={`center`}>
         <h1>{title}</h1>
       </Box>
     </Box>

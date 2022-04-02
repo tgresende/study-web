@@ -32,6 +32,7 @@ export function useActionDialog(
       readingItem,
       revisionCycle,
       revisionItem,
+      topicCycleId: topicCycle.topicCycleId,
     }
 
     await addQuestionUseCase(questionBody)

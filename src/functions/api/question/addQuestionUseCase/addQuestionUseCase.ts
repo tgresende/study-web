@@ -18,4 +18,5 @@ export type addQuestionUseCaseBodyType = {
   readingCycle: string
   lawsItem: string
   lawsCycle: string
+  topicCycleId: number
 }
