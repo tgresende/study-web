@@ -1,5 +1,7 @@
 import React from 'react'
 import { addSimpleTopicCycleUseCase } from '../../functions/api/topicsCycle/addSimpleTopicCycleUseCase'
+import { addOptimizedTopicCycleUseCase } from '../../functions/api/topicsCycle/addOptimizedTopicCycleUseCase'
+
 import { getTopicsCycleUseCase } from '../../functions/api/topicsCycle/getTopicCycleUseCase'
 import { topicCycleType } from '../../reducers/topicCycleReducer/topicCycleTypes'
 
@@ -33,6 +35,16 @@ export default function UseCycleTopicsView(
     setCycleTopicReducer(topicsCycle)
   }
 
+  async function createOptimizedTopicCycle(): Promise<void> {
+    if (!subjectId) {
+      alert('assunto não informado no useCycleTopicView')
+      return
+    }
+    await addOptimizedTopicCycleUseCase(subjectId)
+    const topicsCycle = await getTopicsCycleUseCase(subjectId)
+    setCycleTopicReducer(topicsCycle)
+  }
+
   const handleClickOpenActionDialog = (
     topicCycle: topicCycleType | undefined
   ) => {
@@ -42,6 +54,7 @@ export default function UseCycleTopicsView(
 
   const handleCloseActionDialog = () => {
     setTopicCycleChosen(undefined)
+    getTopicsCycle()
     setOpenActionDialog(false)
   }
 
@@ -52,5 +65,6 @@ export default function UseCycleTopicsView(
     handleClickOpenActionDialog,
     handleCloseActionDialog,
     topicCycleChosen,
+    createOptimizedTopicCycle,
   }
 }

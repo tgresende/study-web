@@ -76,7 +76,6 @@ export default function ActionDialog(
         value={revisionCycle}
         onChange={e => setRevisionCycle(e.target.value)}
       />
-
       <TextInput
         id="readingItem"
         label="Items de Leitura"
@@ -105,7 +104,6 @@ export default function ActionDialog(
         value={lawsCycle}
         onChange={e => setLawsCycle(e.target.value)}
       />
-
       <CommomButton title="Finalizar Tarefa" onClick={addQuestion} />
     </Dialog>
   )

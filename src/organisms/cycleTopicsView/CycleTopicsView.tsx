@@ -24,6 +24,7 @@ export default function CycleTopicsView() {
   const {
     getTopicsCycle,
     createSimpleTopicCycle,
+    createOptimizedTopicCycle,
     openActionDialog,
     handleClickOpenActionDialog,
     handleCloseActionDialog,
@@ -36,10 +37,17 @@ export default function CycleTopicsView() {
 
   return (
     <Card style={{ padding: 4 }}>
-      <CommomButton
-        onClick={createSimpleTopicCycle}
-        title="Criar ciclo simples"
-      />
+      <Box display={`flex`} flexDirection={`row`}>
+        <CommomButton
+          onClick={createSimpleTopicCycle}
+          title="Criar ciclo simples"
+        />
+        <CommomButton
+          onClick={createOptimizedTopicCycle}
+          title="Criar ciclo otimizado"
+        />
+      </Box>
+
       <Card style={{ marginTop: 6 }}>
         <Typography>Ciclo - Tópicos</Typography>
         {topicsCycle &&
@@ -48,6 +56,7 @@ export default function CycleTopicsView() {
               itemCyclename={topicCycle.topicName}
               onFinalizeCycle={() => handleClickOpenActionDialog(topicCycle)}
               studyTimeMinutes={15}
+              score={topicCycle.score}
             />
           ))}
         <ActionDialog

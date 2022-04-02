@@ -2,16 +2,19 @@ import { Card, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { IconBtn } from '../../../atoms/buttons'
 import CheckCircleIcon from '../../../atoms/icons/CheckCircleIcon'
+import GradeIcon from '../../../atoms/icons/GradeIcon'
 import QueryBuilderIcon from '../../../atoms/icons/QueryBuilderIcon'
+import { translateScoreEnumToScoreDomain } from '../../../functions/enumInterpreters/scoreInterpreter'
 
 interface CycleItemCardPropTypes {
   itemCyclename: string
   studyTimeMinutes: number
   onFinalizeCycle: () => void
+  score: number
 }
 
 export default function CycleItemCard(props: CycleItemCardPropTypes) {
-  const { itemCyclename, studyTimeMinutes, onFinalizeCycle } = props
+  const { itemCyclename, studyTimeMinutes, onFinalizeCycle, score } = props
 
   const getTimeStudyText = (studyTimeMinutes: number): string =>
     `${studyTimeMinutes} min`
@@ -25,8 +28,19 @@ export default function CycleItemCard(props: CycleItemCardPropTypes) {
         justifyContent={`space-between`}
         alignItems={`center`}
       >
-        <Box width={'60%'} alignItems={`center`}>
+        <Box width={'40%'} alignItems={`center`}>
           <Typography>{itemCyclename}</Typography>
+        </Box>
+        <Box
+          width={'20%'}
+          alignItems={`center`}
+          display={`flex`}
+          flexDirection={`row`}
+        >
+          <GradeIcon />
+          <Typography style={{ marginLeft: 3 }}>
+            {translateScoreEnumToScoreDomain(score)}
+          </Typography>
         </Box>
         <Box
           width={'20%'}
