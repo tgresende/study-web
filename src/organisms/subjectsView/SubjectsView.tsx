@@ -10,8 +10,14 @@ import { subjectType } from '../../reducers/subjectReducer/subjectTypes'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
 import { AppDispatch } from '../../store'
 
-export default function SubjectsView() {
+interface SubjectsViewPropTypes {
+  openInsertSubjectDialog: () => void
+}
+
+export default function SubjectsView(props: SubjectsViewPropTypes) {
   const projectId = 1
+
+  const { openInsertSubjectDialog } = props
   const { subjects, setSubjects, setActiveSubject } = useSubjectReducer(
     useDispatch() as AppDispatch,
     useSelector
@@ -35,7 +41,7 @@ export default function SubjectsView() {
 
   return (
     <Box>
-      <AddIconBtn onClick={() => alert('abri modal com adicao de subject')} />
+      <AddIconBtn onClick={openInsertSubjectDialog} />
       {subjects.map(subject => (
         <Typography onClick={() => navigateToSubjectPage(subject)}>
           {subject.name}
