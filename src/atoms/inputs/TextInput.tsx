@@ -9,6 +9,7 @@ export default function TextInput(props: TextFieldProps) {
       label={props.label}
       id={props.id}
       disabled={props.disabled}
+      fullWidth
     />
   )
 }

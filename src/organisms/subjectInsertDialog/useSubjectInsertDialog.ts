@@ -4,7 +4,7 @@ import { subjectType } from '../../reducers/subjectReducer/subjectTypes'
 
 export default function useSubjectInsertDialog() {
   const [subjectName, setSubjectName] = React.useState<string>('')
-  const [subjectWeight, setSubjectWeight] = React.useState<number>(0)
+  const [subjectWeight, setSubjectWeight] = React.useState<number>(1)
   const [subjectAnnotations, setSubjectAnnotations] = React.useState<string>('')
 
   async function addSubject(

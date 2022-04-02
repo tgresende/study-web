@@ -10,6 +10,7 @@ export default function NumberInput(props: TextFieldProps) {
       id={props.id}
       disabled={props.disabled}
       type="number"
+      fullWidth
     />
   )
 }
