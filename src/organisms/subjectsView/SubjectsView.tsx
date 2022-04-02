@@ -40,7 +40,7 @@ export default function SubjectsView(props: SubjectsViewPropTypes) {
   }
 
   return (
-    <Card style={{ width: `100%` }}>
+    <Card style={{ width: `100%`, height: `100%` }}>
       <Box
         display={`flex`}
         flexDirection={`row`}
@@ -55,9 +55,13 @@ export default function SubjectsView(props: SubjectsViewPropTypes) {
       <Box
         display={`flex`}
         flexDirection={`column`}
-        justifyContent={`center`}
         alignItems={`flex-start`}
+        maxHeight={`80%`}
         paddingX={2}
+        style={{
+          overflow: 'scroll',
+          overflowX: `hidden`,
+        }}
       >
         {subjects.map(subject => (
           <Typography onClick={() => navigateToSubjectPage(subject)}>

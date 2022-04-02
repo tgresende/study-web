@@ -16,12 +16,12 @@ export default function ProjectPage() {
       <Box
         display={`flex`}
         flexDirection={`row`}
-        alignItems={'center'}
+        alignItems={'flex-start'}
         justifyContent={'space-between'}
-        padding={16}
+        padding={8}
         width={'80%'}
       >
-        <Box width={1 / 4}>
+        <Box width={1 / 4} height={450}>
           <SubjectsView openInsertSubjectDialog={openInsertSubjectDialog} />
         </Box>
         <SubjectInsertDialog
