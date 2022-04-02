@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { SimpleHeader } from '../../molecules/headers'
 import { SubjectInsertDialog, SubjectsView, CycleCard } from '../../organisms'
 import { useProjectPage } from './useProjectPage'
 
@@ -11,7 +12,7 @@ export default function ProjectPage() {
 
   return (
     <Box display={`flex`} flexDirection={`column`} alignItems={'center'}>
-      <h1> view de projetos</h1>
+      <SimpleHeader title={`Projetos`} />
       <Box
         display={`flex`}
         flexDirection={`row`}
