@@ -20,7 +20,9 @@ export default function ProjectPage() {
         padding={16}
         width={'80%'}
       >
-        <SubjectsView openInsertSubjectDialog={openInsertSubjectDialog} />
+        <Box width={1 / 4}>
+          <SubjectsView openInsertSubjectDialog={openInsertSubjectDialog} />
+        </Box>
         <SubjectInsertDialog
           open={insertSubjectDialogOpen}
           onClose={closeInsertSubjectDialog}

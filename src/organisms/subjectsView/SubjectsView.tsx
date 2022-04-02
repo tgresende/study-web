@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Card, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -40,13 +40,31 @@ export default function SubjectsView(props: SubjectsViewPropTypes) {
   }
 
   return (
-    <Box>
-      <AddIconBtn onClick={openInsertSubjectDialog} />
-      {subjects.map(subject => (
-        <Typography onClick={() => navigateToSubjectPage(subject)}>
-          {subject.name}
-        </Typography>
-      ))}
-    </Box>
+    <Card style={{ width: `100%` }}>
+      <Box
+        display={`flex`}
+        flexDirection={`row`}
+        justifyContent={`flex-end`}
+        alignItems={`center`}
+      >
+        <Box marginX={4}>
+          <Typography variant="h6">Assuntos</Typography>
+        </Box>
+        <AddIconBtn onClick={openInsertSubjectDialog} />
+      </Box>
+      <Box
+        display={`flex`}
+        flexDirection={`column`}
+        justifyContent={`center`}
+        alignItems={`flex-start`}
+        paddingX={2}
+      >
+        {subjects.map(subject => (
+          <Typography onClick={() => navigateToSubjectPage(subject)}>
+            {subject.name}
+          </Typography>
+        ))}
+      </Box>
+    </Card>
   )
 }
