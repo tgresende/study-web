@@ -12,6 +12,7 @@ export type topicCycleType = {
   topicName: string
   score: scoreType
   topicId: number
+  action: number
 }
 
 export interface ITopicCycleReducerType {

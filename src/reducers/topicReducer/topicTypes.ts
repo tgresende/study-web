@@ -9,6 +9,8 @@ export type topicType = {
   TopicId: number
   name: string
   annotations: string
+  media: number
+  score: number
 }
 
 export interface ITopicReducerType {

@@ -11,10 +11,12 @@ interface CycleItemCardPropTypes {
   studyTimeMinutes: number
   onFinalizeCycle: () => void
   score: number
+  action: string
 }
 
 export default function CycleItemCard(props: CycleItemCardPropTypes) {
-  const { itemCyclename, studyTimeMinutes, onFinalizeCycle, score } = props
+  const { itemCyclename, studyTimeMinutes, onFinalizeCycle, score, action } =
+    props
 
   const getTimeStudyText = (studyTimeMinutes: number): string =>
     `${studyTimeMinutes} min`
@@ -30,6 +32,7 @@ export default function CycleItemCard(props: CycleItemCardPropTypes) {
       >
         <Box width={'40%'} alignItems={`center`}>
           <Typography>{itemCyclename}</Typography>
+          <Typography>{action}</Typography>
         </Box>
         <Box
           width={'20%'}

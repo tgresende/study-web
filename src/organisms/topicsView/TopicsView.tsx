@@ -2,6 +2,7 @@ import { Card, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { translateScoreEnumToScoreDomain } from '../../functions/enumInterpreters/scoreInterpreter'
 import { AddIconBtn } from '../../molecules/buttons'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
 import { topicType } from '../../reducers/topicReducer/topicTypes'
@@ -46,8 +47,20 @@ export default function TopicsView(props: TopicsViewType) {
           <AddIconBtn onClick={openInsertTopicDialog} />
         </Box>
         {topics.map(topic => (
-          <Card style={{ margin: 4 }}>
-            <Typography>{topic.name}</Typography>
+          <Card style={{ margin: 2 }}>
+            <Box display={`flex`} flexDirection={`row`} marginX={4}>
+              <Box width={3 / 5}>
+                <Typography>{topic.name}</Typography>
+              </Box>
+              <Box width={1 / 5}>
+                <Typography>
+                  {translateScoreEnumToScoreDomain(topic.score)}
+                </Typography>
+              </Box>
+              <Box width={1 / 5}>
+                <Typography>{topic.media}%</Typography>
+              </Box>
+            </Box>
           </Card>
         ))}
       </Box>

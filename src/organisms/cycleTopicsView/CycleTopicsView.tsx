@@ -3,6 +3,7 @@ import { Box } from '@mui/system'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommomButton } from '../../atoms/buttons'
+import { translateActionEnumToActionTopiccycleDomain } from '../../functions/enumInterpreters/actionCycleTopicInterpreter'
 import CycleItemCard from '../../molecules/cards/cycleItemCard/CycleItemCard'
 import useSubjectReducer from '../../reducers/subjectReducer/useSubjectReducer'
 import useTopicCycleReducer from '../../reducers/topicCycleReducer/useTopicCycleReducer'
@@ -57,6 +58,9 @@ export default function CycleTopicsView() {
               onFinalizeCycle={() => handleClickOpenActionDialog(topicCycle)}
               studyTimeMinutes={15}
               score={topicCycle.score}
+              action={translateActionEnumToActionTopiccycleDomain(
+                topicCycle.action
+              )}
             />
           ))}
         <ActionDialog
